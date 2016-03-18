@@ -281,6 +281,7 @@
 				B835DE251C99A4AA00723F53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

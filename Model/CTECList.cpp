@@ -230,12 +230,11 @@ Type CTECList<Type>::removeFromEnd()
 		{
 			currentNode = currentNode->getNext();
 		}
-
-//		ArrayNode<Type> * pointer = head;
-//		while(pointer->getNext()->getNext() != nullptr)
-//		{
-//			pointer = pointer->getNext();
-//		}
+        ArrayNode<Type> * pointer = head;
+		while(pointer->getNext()->getNext() != nullptr)
+		{
+			pointer = pointer->getNext();
+		}
 
 		valueToRemove = currentNode->getNext()->getValue();
 		end = currentNode;
@@ -249,15 +248,11 @@ Type CTECList<Type>::removeFromEnd()
 template <class Type>
 Type CTECList<Type>::removeFromIndex(int index)
 {
-
 	assert(this->size > 0);
-
 	assert(index >= 0 && index < size);
 
 	Type thingToRemove;
-
 	ArrayNode<Type> * previous, deleteMe, newNext;
-
 	if(index == 0)
 	{
 		thingToRemove = removeFromFront();
@@ -284,4 +279,24 @@ Type CTECList<Type>::Set(int index, Type value)
 {
 
 }
+template <class Type>
+int CTECList<Type>:: indexOf(Type searchValue)
+{
+    assert(this->size > 0);
+    int index = -1;
+    ArrayNode<Type> * searchPointer = head;
+    for(searchPointer =  head; searchPointer->getValue() != searchValue; searchPointer = searchPointer->getNext())
+    {
+        if(searchValue == searchPointer->getValue())
+        {
+            return index;
+        }
+        index++;
+    }
+    
+    return index;
+    
+}
+
+
 

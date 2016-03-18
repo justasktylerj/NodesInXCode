@@ -31,7 +31,8 @@ public:
 	Type removeFromFront();
 	Type removeFromEnd();
 	Type removeFromIndex(int index);
-	Type Set(int index, Type value);
+    Type Set(int index, Type value);
+    int indexOf(Type searchValue);
 };
 
 
