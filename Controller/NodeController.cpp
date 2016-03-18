@@ -18,9 +18,14 @@ NodeController::~NodeController()
 
 void NodeController :: testLists()
 {
-	 numbers->addToFront(3);
-	 numbers->addToEnd(8);
-	 cout << "end should be 8 and is " << numbers->getEnd() << endl;
+    numbers.addToFront(3);
+    numbers.addToEnd(8);
+    cout << "end should be 8 and is " << numbers->getFront() << endl;
+    cout << "end should be 8 and is " << numbers->getEnd() << endl;
+    cout << "end should be 8 and is " << numbers->getSize() << endl;
+    
+    numbers.addAtIndex(3,2);
+    cout << "end should be 8 and is " << numbers->getFromIndex() << endl;
 }
 void NodeController :: start()
 {
