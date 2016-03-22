@@ -18,20 +18,33 @@ NodeController::~NodeController()
 
 void NodeController :: testLists()
 {
+    CTECList<int> numbers;
     numbers.addToFront(3);
     numbers.addToEnd(8);
-    cout << "end should be 8 and is " << numbers->getFront() << endl;
-    cout << "end should be 8 and is " << numbers->getEnd() << endl;
-    cout << "end should be 8 and is " << numbers->getSize() << endl;
+    numbers.addToFront(0);
+    numbers.addToEnd(2);
+    cout << "head should be 0 and is " << numbers.getFront() << endl;
+    cout << "end should be 2 and is " << numbers.getEnd() << endl;
+    cout << "size should be 4 and is " << numbers.getSize() << endl;
     
-    numbers.addAtIndex(3,2);
-    cout << "end should be 8 and is " << numbers->getFromIndex() << endl;
+    numbers.AddAtIndex(1,2);
+    cout << "index 1 should be 2 and is " << numbers.getFromIndex(1) << endl;
+    
+    numbers.removeFromFront();
+    numbers.removeFromEnd();
+    cout << "head should be 2 and is:" << numbers.getFront() << endl;
+    cout << "end should be 8 and is:" << numbers.getEnd() << endl;
+    
+    numbers.removeFromIndex(1);
+    cout << "index of value should be 1 and is:" << numbers.indexOf(8) << endl;
+    cout << "size should be 2 and is:" << numbers.getSize() << endl;
+    
 }
 void NodeController :: start()
 {
 	testLists();
 
-;	arrayTimer.startTimer();
+	arrayTimer.startTimer();‹
 
 	for(int index = 0; index < myIntArray->getSize(); index++)
 	{
