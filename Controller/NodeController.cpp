@@ -44,7 +44,7 @@ void NodeController :: start()
 {
 	testLists();
 
-	arrayTimer.startTimer();‹
+	arrayTimer.startTimer();
 
 	for(int index = 0; index < myIntArray->getSize(); index++)
 	{
