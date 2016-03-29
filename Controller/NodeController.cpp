@@ -60,3 +60,24 @@ void NodeController :: start()
 	arrayTimer.displayTimerInformation();
 }
 
+void NodeController::checkSorts()
+{
+    CTECArray<int> sortNumberArray(5);
+    CTECList<int> sortNumberList;
+    for(int spot = 0; spot < 5000; spot++)
+    {
+        int randomValue = rand();
+        numbersInArray.set(spot, randomValue);
+        numbersInList.addToEnd(randomValue);
+    }
+    
+    Timer sortTimer;
+    sortTimer.startTimer();
+    numbersInList.selectionSort();
+    sortTimer.stopTimer();
+    sortTimer.displayTimerInformation()
+    
+    sortTimer.resetTimer();
+    
+}
+

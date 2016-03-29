@@ -26,6 +26,7 @@ private:
 	CTECList<int> * numbers;
 	Timer arrayTimer;
 	void testLists();
+    void checkSorts();
 public:
 	NodeController();
 	virtual ~NodeController();
