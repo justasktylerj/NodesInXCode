@@ -14,6 +14,7 @@
 		B835DE391C99A57000723F53 /* CTECList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B835DE2F1C99A57000723F53 /* CTECList.cpp */; };
 		B835DE3A1C99A57000723F53 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B835DE311C99A57000723F53 /* Node.cpp */; };
 		B835DE3B1C99A57000723F53 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B835DE331C99A57000723F53 /* Timer.cpp */; };
+		B8C044F11CBBE7FA00673235 /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8C044F01CBBE7FA00673235 /* TreeNode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,8 @@
 		B835DE321C99A57000723F53 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		B835DE331C99A57000723F53 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
 		B835DE341C99A57000723F53 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		B8C044EE1CBBE6C000673235 /* TreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
+		B8C044F01CBBE7FA00673235 /* TreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreeNode.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				B835DE321C99A57000723F53 /* Node.h */,
 				B835DE331C99A57000723F53 /* Timer.cpp */,
 				B835DE341C99A57000723F53 /* Timer.h */,
+				B8C044EE1CBBE6C000673235 /* TreeNode.h */,
+				B8C044F01CBBE7FA00673235 /* TreeNode.cpp */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				B835DE3A1C99A57000723F53 /* Node.cpp in Sources */,
 				B835DE351C99A57000723F53 /* NodeController.cpp in Sources */,
 				B835DE3B1C99A57000723F53 /* Timer.cpp in Sources */,
+				B8C044F11CBBE7FA00673235 /* TreeNode.cpp in Sources */,
 				B835DE361C99A57000723F53 /* NodeRunner.cpp in Sources */,
 				B835DE371C99A57000723F53 /* ArrayNode.cpp in Sources */,
 				B835DE391C99A57000723F53 /* CTECList.cpp in Sources */,

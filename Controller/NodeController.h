@@ -22,11 +22,19 @@ using namespace std;
 class NodeController
 {
 private:
-	CTECArray<int> * myIntArray;
-	CTECList<int> * numbers;
+    CTECList<int> * numbers;
 	Timer arrayTimer;
 	void testLists();
-    void checkSorts();
+    void sortData();
+    void searchTest();
+    
+    void swap(int indexOne, int indexTwo);
+    int * mergeData;
+    void doMergeSort();
+    void mergeSort(int [] dataArray, int size);
+    void merge(int data [], int sizeOne, int sizeTwo);
+    void quickSort(int data[], int size);
+    void partition(int first, in last);
 public:
 	NodeController();
 	virtual ~NodeController();
