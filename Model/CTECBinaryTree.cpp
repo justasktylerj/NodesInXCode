@@ -8,6 +8,44 @@
 
 #include "CTECBinaryTree.h"
 using namespace CTECData;
+using namespace std;
+
+
+template <class Type>
+CTECBinaryTree<Type> :: CTECBinaryTree()
+{
+    root = nullptr;
+    height = 0;
+    balanced = true;
+    size = 0;
+}
+
+template <class Type>
+bool CTECBinaryTree:: insert(const Type& value)
+{
+    if(contains(value))
+    {
+        return false;
+    }
+    else
+    {
+        if(value < root->getValue())
+        {
+            insert(value, root->getLeftChild())
+        }
+        else
+        {
+            insert(value, root->getRightChild())
+        }
+        return true;
+    }
+}
+
+template <class Type>
+void CTECBinaryTree<Type> :: insert(const Type& value, CTECBinaryTree<Type> * currentTree)
+{
+    
+}
 
 template <class Type>
 void CTECBinaryTree:: inOrderTraversal<Type> * currentNode)
@@ -63,3 +101,30 @@ void CTECBinaryTree:<Type> :: calculateSize(TreeNode<Type> * currentNode)
     }
             
 }
+        
+template <class Type>
+bool CTECBinaryTree:<Type> :: contains(Type value, CTECBinaryTree<Type> currentTree)
+{
+    if(currentTree == nullptr)
+    {
+        return false;
+    }
+    
+    if(root->getValue == value)
+    {
+        return true;
+    }
+    else if(value < currentTree->getRoot()->getValue())
+    {
+        return contains(value, currentTree->getRoot()->getLeftChild());
+    }
+    else
+    {
+        return contains(value, currentTree->getRoot()->getRightChild());
+    }
+    return false;
+}
+        
+        
+        
+        
