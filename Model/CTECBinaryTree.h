@@ -26,8 +26,13 @@ public:
     bool contains(Type value):
     Type remove(const Type& value);
     int getHeight();
+    int getSize();
     bool isBalanced();
     TreeNode<Type> * getRoot();
+    void inOrderTraversal(TreeNode<Type> * currentNode);
+    void postOrderTraversal(TreeNode<Type> * currentNode);
+    void preOrderTraversal(TreeNode<Type> * currentNode);
+    
 };
 
 #endif /* CTECBinaryTree_hpp */
