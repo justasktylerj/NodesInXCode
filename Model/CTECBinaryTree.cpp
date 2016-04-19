@@ -44,7 +44,63 @@ bool CTECBinaryTree:: insert(const Type& value)
 template <class Type>
 void CTECBinaryTree<Type> :: insert(const Type& value, CTECBinaryTree<Type> * currentTree)
 {
+    TreeNode<Type> * insertNode(value);
+    TreeNode<Type> * current;
+    TreeNode<Type> * trailingCurrent;
+    assert(insertedNode != nullptr);
     
+    if(contains(value))
+    {
+        return false;
+    }
+    else
+    {
+        if(root == nullptr)
+        {
+            root = insertedNode;
+        }
+        else
+        {
+            current = root;
+            
+            while (current != nullptr)
+            {
+                trailingCurrent = current;
+                
+                if ( current->getValue() > value)
+                {
+                    current = current->getLeftChild();
+                }
+                else
+                {
+                    current = current->getRightChild();
+                }
+            }
+            if(trailingCurrent->getValue() > value)
+            {
+                trailingCurrent->setLeftChild(insertedNode);
+            }
+            else
+            {
+                trailingCurrent->setParent(trailingCurrent);
+            }
+            insertedNode->setParent(trailingCurrent)
+        }
+        return true;
+    }
+}
+
+template <class Type>
+Type CTECBinaryTree<Type> :: remove(const Type& value)
+{
+    if(!contains(value))
+    {
+        return value;
+    }
+    else
+    {
+        
+    }
 }
 
 template <class Type>
@@ -125,18 +181,8 @@ bool CTECBinaryTree:<Type> :: contains(Type value, CTECBinaryTree<Type> currentT
     return false;
 }
  
-template <class Type>
-void CTECBinaryTree:<Type> :: insert(const Item& entry)
-{
-    root_ptr = new binary_tree_node<Item>(entry);
-    cursor = cursor->left;
-}
 
-template <class Type>
-bool CTECBinaryTree:<Type> :: erase_one(const Item& target)
-{
-    
-}
+
       
 
         
