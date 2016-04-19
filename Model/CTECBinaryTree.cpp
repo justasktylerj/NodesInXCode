@@ -99,7 +99,9 @@ Type CTECBinaryTree<Type> :: remove(const Type& value)
     }
     else
     {
-        
+        /*
+         
+         */
     }
 }
 
