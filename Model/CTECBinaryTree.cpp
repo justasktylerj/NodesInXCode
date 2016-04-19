@@ -124,6 +124,23 @@ bool CTECBinaryTree:<Type> :: contains(Type value, CTECBinaryTree<Type> currentT
     }
     return false;
 }
+ 
+template <class Type>
+void CTECBinaryTree:<Type> :: insert(const Item& entry)
+{
+    root_ptr = new binary_tree_node<Item>(entry);
+    cursor = cursor->left;
+}
+
+template <class Type>
+bool CTECBinaryTree:<Type> :: erase_one(const Item& target)
+{
+    
+}
+      
+
+        
+
         
         
         

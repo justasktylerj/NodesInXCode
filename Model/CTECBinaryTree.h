@@ -32,7 +32,8 @@ public:
     void inOrderTraversal(TreeNode<Type> * currentNode);
     void postOrderTraversal(TreeNode<Type> * currentNode);
     void preOrderTraversal(TreeNode<Type> * currentNode);
-    
+    void insert(const Item& entry);
+    bool erase_one(const Item& target);
 };
 
 #endif /* CTECBinaryTree_hpp */
