@@ -19,8 +19,10 @@ private:
     int height;
     bool balanced;
     bool contains(Type value, CTECBInaryTree<Type> * currentTree);
+    void calculateSize(TreeNode<Type> * currentNode);
     TreeNode<Type> * getRightMostChild(CTECBinaryTree * leftSubTree)
     TreeNode<Type> * getLeftMostChild(CTECBinaryTree * rightSubTree)
+    void remove(TreeNode<Type> * currentNode)
 public:
     CTECBinaryTree():
     ~CTECBinaryTree():
