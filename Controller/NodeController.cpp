@@ -110,6 +110,12 @@ void NodeController::doMergeSort()
     sortTimer.resetTimer();
 
 }
+
+void NodeController :: tryTree()
+{
+    
+}
+
 void NodeController::mergeSort(int data[], int size )
 {
     int sizeOne;
