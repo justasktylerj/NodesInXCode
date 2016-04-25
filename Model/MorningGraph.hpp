@@ -8,6 +8,7 @@
 
 #ifndef MorningGraph_hpp
 #define MorningGraph_hpp
+#include <set>
 
 namespace CTECData
 {
@@ -16,6 +17,10 @@ namespace CTECData
     {
     private:
         static const int MAXIMUM = 20;
+        bool edges [MAXIMUM][MAXIMUM];
+        Type labels [MAXIMUM];
+        int manyVertices;
+        
     public:
         MorningGraph();
         virtual ~MorningGraph();
@@ -24,6 +29,10 @@ namespace CTECData
         void addEdge(int source, int target);
         void removeEdge(int source, int target);
         Type& operator [] (int vertex);
+        int size() const;
+        bool isEdge(int source, int target)const;
+        std::set<int> neighbors(int vertex) const;
+        Type operator [](int vertex) const;
         
     };
 }
