@@ -94,10 +94,18 @@ void MorningGraph<Type> :: removeEdge(int source, int target)
 template <class Type>
 void MorningGraph<Type> :: depthFirstTraversal(MorningGraph<Type> currentGraph, int vertex, bool * markedVertices)
 {
+    bool markedVertices[MAXIMUM];
+    
+}
+
+           
+template <class Type>
+void MorningGraph<Type> :: depthFirstTraversal(MorningGraph<Type> currentGraph, int vertex, bool * markedVertices)
+{
     std::set<int> connections = currentGraph.neighbors(vertex);
     std::set<int>::iterator setIterator;
         
-    markedVertices[vertex] = true;
+/Users/tjar2074/Documents/C++ projects/NodesInXCode/Model/TreeNode.h    markedVertices[vertex] = true;
     cout << currentGraph[vertex] << endl;
         
     for(setIterator = connections.begin(); setIterator != connections.end(); setIterator++)
