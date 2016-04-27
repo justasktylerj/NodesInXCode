@@ -5,6 +5,8 @@
  *      Author: tjar2074
  */
 #include "NodeController.h"
+#include <iostream>
+#include <stdlib.h>
 
 NodeController::NodeController()
 {
@@ -42,75 +44,39 @@ void NodeController :: testLists()
 }
 void NodeController :: start()
 {
-	testLists();
-
-	arrayTimer.startTimer();
-
-	for(int index = 0; index < myIntArray->getSize(); index++)
-	{
-		myIntArray->set(index, (2* index));
-	}
-
-	for(int index = 0; index < myIntArray->getSize(); index++)
-	{
-		cout << "not hipster ints at index " << index << " contains " << myIntArray->get(index) << endl;
-	}
-
-	arrayTimer.stopTimer();
-	arrayTimer.displayTimerInformation();
-}
-
-void NodeController::sortData()
-{
-    CTECArray<int> sortNumberArray(5);
-    CTECList<int> sortNumberList;
-    for(int spot = 0; spot < 5000; spot++)
-    {
-        int randomValue = rand();
-        numbersInArray.set(spot, randomValue);
-        numbersInList.addToEnd(randomValue);
-    }
-    
-    Timer sortTimer;
-    sortTimer.startTimer();
-    numbersInList.selectionSort();
-    sortTimer.stopTimer();
-    sortTimer.displayTimerInformation()
-    
-    sortTimer.resetTimer();
-    
-}
+    doQuick();
 
 void NodeController::searchTest()
 {
     
 }
-void NodeController::doMergeSort()
+void NodeController::doMergesort()
 {
-    mergeData = new int[5000];
-    for(int spot = 0; spot < 5000; spot++)
+    mergeData = new int[500000000];
+    
+    for(int spot = 0; spot < 500000000; spot++)
     {
-        int myRandom = rand();
+        int myRandom = rand() % 1000;
         mergeData[spot] = myRandom;
     }
-    for (int spot = 0; spot < 50; spot++)
+    for (int spot =0; spot < 5000; spot++)
     {
-        cout << mergeData[spot] << ", ";
-    }
-    Timer mergeTimer;
-    mergeTimer.startTimer();
-    mergeSort(mergeData, 50000);
-    mergeTimer.stopTimer();
-    mergeTimer.displayTimerInformation();
-    for (int spot = 0; spot < 5000; spot++)
-    {
-        
+        cout << mergeData[spot] << ", " ;
     }
     
-    sortTimer.resetTimer();
-
+    Timer mergeTimer;
+    mergeTimer.startTimer();
+    mergesort(mergeData, 500000000);
+    mergeTimer.stopTimer();
+    mergeTimer.displayTimerInformation();
+    
+    for (int spot =0; spot < 5000; spot++)
+    {
+        cout << mergeData[spot] << ", " ;
+    }
+    
+    delete [] mergeData;
 }
-
 void NodeController :: tryTree()
 {
     
@@ -127,7 +93,7 @@ void NodeController::mergeSort(int data[], int size )
         sizeTwo = size-sizeOne;
         
         mergeSort(data, sizeOne);
-        mergeSort((data+ sizeOne), sizeTwo);
+        mergeSort((data+sizeOne), sizeTwo);
         
         merge(data, sizeOne, sizeTwo);
     }
@@ -216,5 +182,23 @@ void NodeController::partition(int first, int last)
     swap(first, smallIndex);
     
     return smallInd
+}
+
+void NodeController::doQuick()
+{
+    mergeData = new int[1000000000];
+    
+    for(int spot = 0; spot < 1000000000; spot++)
+    {
+        int myRandom = rand();
+        mergeData[spot] = myRandom;
+    }
+    Timer mergeTimer;
+    mergeTimer.startTimer();
+    quicksort(0, 1000000000-1);
+    mergeTimer.stopTimer();
+    mergeTimer.displayTimerInformation();
+    
+    delete [] mergeData;
 }
 

@@ -29,12 +29,15 @@ private:
     void searchTest();
     
     void swap(int indexOne, int indexTwo);
+    int partition(int first, in last);
+    void doQuick();
+    void quickSort(int data[], int size);
+
     int * mergeData;
     void doMergeSort();
     void mergeSort(int [] dataArray, int size);
     void merge(int data [], int sizeOne, int sizeTwo);
-    void quickSort(int data[], int size);
-    void partition(int first, in last);
+    
 public:
 	NodeController();
 	virtual ~NodeController();
