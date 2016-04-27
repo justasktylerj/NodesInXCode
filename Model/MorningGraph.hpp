@@ -33,7 +33,8 @@ namespace CTECData
         bool isEdge(int source, int target)const;
         std::set<int> neighbors(int vertex) const;
         Type operator [](int vertex) const;
-        
+        void depthFirstTraveral(MorningGraph<Type> graph, int vertex);
+        void breadthFirstTraveral(MorningGraph<Type> graph, int vertex);
     };
 }
 

@@ -70,7 +70,7 @@ Type MorningGraph<Type> :: operator[](int vertex) const
 }
 
 template <class Type>
-std::set<int> MorningGraph<Type> neighbors(int vertex) const
+std::set<int> MorningGraph<Type> :: neighbors(int vertex) const
 {
     std::set<int> answer;
     assert(vertex < size()):
@@ -86,10 +86,61 @@ std::set<int> MorningGraph<Type> neighbors(int vertex) const
 }
 
 template <class Type>
-void MorningGraph:: removeEdge(int source, int target)
+void MorningGraph<Type> :: removeEdge(int source, int target)
 {
-    assert(source < size() && target 
+    assert(source < size() && target
 }
+           
+template <class Type>
+void MorningGraph<Type> :: depthFirstTraversal(MorningGraph<Type> currentGraph, int vertex, bool * markedVertices)
+{
+    std::set<int> connections = currentGraph.neighbors(vertex);
+    std::set<int>::iterator setIterator;
+        
+    markedVertices[vertex] = true;
+    cout << currentGraph[vertex] << endl;
+        
+    for(setIterator = connections.begin(); setIterator != connections.end(); setIterator++)
+    {
+        if(!markedVertices[*setIterator])
+        {
+            depthFirstTraversal(currentGraph, *setIterator, markedVertices);
+        }
+    }
+}
+           
+           
+
+           template <class Type>
+void MorningGraph<Type> :: breadthFirstTraversal(MorningGraph<Type> currentGraph, int vertex)
+{
+    bool markedVertices[MAXIMUM];
+    std::set<int> connections;
+    std::set<int>::iterator setIterator;
+    std::queue<int> vertesQueue;
+    assert(vertex < currentGraph.size());
+    
+    std::fill_n(markedVertices, currentGraph.size(), false);
+    markedVertices[vertex] = true;
+    cout << currentGraph[vertex] << endl;
+    vertexQueue.push(vertex);
+    while (!vertexQueue.empty())
+    {
+        connections = currentGraph.neighbors(vertexQueue.front());
+        vertexQueue.pop();
+        
+        for(setIterator = connections.begon(); setIterator != connections.end(); setIterator++)
+        {
+            if(!markedVertices[*markedVertices])
+            {
+                markedVertices[*setIterator] = true;
+                cout << currentGraph[*setIterator] << endl;
+                vertexQueue.push(*setIterator);
+            }
+        }
+    }
+}
+
 
 
 
