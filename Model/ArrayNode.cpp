@@ -10,40 +10,39 @@
 using namespace CTECData;
 
 template <class Type>
-ArrayNode<Type>::ArrayNode() : Node<Type>()
+Node<Type>::Node()
 {
-    this->next = nullptr;
+    this->pointers = nullptr;
 }
 
 template <class Type>
-ArrayNode<Type> :: ArrayNode(const Type& value) : Node<Type>(value)
+Node<Type>::Node(const Type& value)
 {
-    this->next = nullptr;
-    this->setValue(value);
+    this->value = value;
+    this->pointers = nullptr;
 }
 
 template <class Type>
-ArrayNode<Type> :: ArrayNode(const Type& value, ArrayNode<Type> * next) : Node<Type>(value)
-{
-    this->setValue(value);
-    this->next = next;
-}
-
-template <class Type>
-ArrayNode<Type>::~ArrayNode()
+Node<Type>::~Node()
 {
     // TODO Auto-generated destructor stub
 }
 
 template <class Type>
-ArrayNode<Type> * ArrayNode<Type> :: getNext()
+Type Node<Type> :: getValue()
 {
-    return this->next;
+    return this->value;
 }
 
 template <class Type>
-void ArrayNode<Type> :: setNext(ArrayNode<Type> * next)
+void Node<Type> :: setValue(const Type& value)
 {
-    this->next = next;
+    this->value = value;
+}
+
+template <class Type>
+Node<Type>* Node<Type> :: getPointers()
+{
+    return this->pointers;
 }
 

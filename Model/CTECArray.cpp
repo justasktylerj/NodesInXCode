@@ -5,50 +5,51 @@
  *      Author: tjar2074
  */
 #include "CTECArray.h"
+
 #include <assert.h>
 using namespace std;
+using namespace CTECData;
 
 template <class Type>
 CTECArray<Type>::CTECArray(int size)
 {
-	this->size = size;
-	this->head = nullptr;
-
-	assert(size > 0);
-
-
-	for (int index = 0; index < size; index++)
-	{
-		if(head != nullptr)
-		{
-			ArrayNode<Type> * nextNode = new ArrayNode<Type>;
-			nextNode->setNext(head);
-			head = nextNode;
-		}
-		else
-		{
-			ArrayNode<Type> * first = new ArrayNode<Type>;
-			head = first;
-
-		}
-	}
+    this->size = size;
+    this->head = nullptr;
+    
+    assert(size > 0);
+    
+    for (int index = 0; index < size; index++)
+    {
+        if (head != nullptr)
+        {
+            ArrayNode<Type> * nextNode = new ArrayNode<Type>();
+            nextNode->setNext(head);
+            this->head = nextNode;
+        }
+        else
+        {
+            ArrayNode<Type> * firstNode = new ArrayNode<Type>();
+            this->head = firstNode;
+        }
+    }
 }
 
 template <class Type>
 CTECArray<Type>::~CTECArray()
 {
-	ArrayNode<Type> * deleteMe = head;
-	for(int index = 0; index < size; index++)
-	{
-		if(deleteMe->getNext() != nullptr)
-		{
-			head = deleteMe->getNext();
-			deleteMe->setNext(nullptr);
-		}
-		delete deleteMe->getNext();
-		deleteMe = head;
-	}
-	delete head;
+    ArrayNode<Type> * deleteMe = head;
+    for (int index = 0; index < size; index++)
+    {
+        if (deleteMe->getNext() != nullptr)
+        {
+            head = deleteMe->getNext();
+            deleteMe->setNext(nullptr);
+        }
+        
+        delete deleteMe;
+        deleteMe = head;
+        
+    }
 }
 
 template <class Type>
@@ -60,22 +61,20 @@ int CTECArray<Type>::getSize()
 template <class Type>
 Type CTECArray<Type>:: get(int position)
 {
-	assert(position < size && position >= 0);
-
-	ArrayNode<Type> * current = head;
-
-	for(int spot = 0; spot <= position; spot++)
-	{
-			if(spot != position)
-			{
-				current = current->getNext();
-			}
-			else
-			{
-				return current->getValue();
-			}
-	}
+    ArrayNode<Type> * current = head;
+    for (int spot = 0; spot <= position; spot++)
+    {
+        if (spot != position)
+        {
+            current = current->getNext();
+        }
+        else
+        {
+            return current->getValue();
+        }
+    }
     return current->getValue();
+
 }
 
 template <class Type>
@@ -109,9 +108,8 @@ int CTECArray<Type> :: indexOf(Type searchValue)
 {
     assert(this->size > 0);
     
-    int indexNotFound = -1;
-    
     ArrayNode<Type> * current = head;
+    int indexNotFound = -1;
     
     for(int index = 0; index < this->size; index++)
     {
@@ -121,7 +119,7 @@ int CTECArray<Type> :: indexOf(Type searchValue)
         }
         else
         {
-            current = current->getNext();
+            current = current->getValue();
         }
     }
     
@@ -156,39 +154,34 @@ int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue)
     return indexNotFound;
 }
 
-template<class Type>
+template <class Type>
 void CTECArray<Type> :: swap(int indexOne, int indexTwo)
 {
     assert(indexOne < size && indexTwo < size);
-    ArrayNode<Type> * first = getFromIndex(indexOne);
-    ArrayNode<Type> * second = getFromIndex(indexTwo);
-    ArrayNode<Type> * temp = new ArrayNode<Type>();
     
-    temp->setValue(first->getValue());
-    first->setValue(second->getValue());
-    second->setValue(temp->getValue());
-    
-    delete temp;
+    Type temp = get(indexOne);
+    set(indexOne, get(indexTwo));
+    set(indexTwo, temp);
 }
 
-template<class Type>
-void CTECArray<Type> :: selectionSort()
+template <class Type>
+void CTECArray <Type> :: selectionSort()
 {
-    int innerLoop, outerLoop;
-    for(outerLoop = 0; outerLoop < this->size()-1; outerLoop++)
+    for(int outerLoop = 0; outerLoop < size - 1; outerLoop++)
     {
         int selectedMinimum = outerLoop;
-        for(innerLoop = outerLoop+1; innerLoop < size; innerLoop++)
+        
+        for(int innerLoop = outerLoop + 1; innerLoop < size; innerLoop++)
         {
-            if(get(innerLoop) < getFromIndex(selectedMinimum))
+            if(get(innerLoop) < get(selectedMinimum))
             {
                 selectedMinimum = innerLoop;
             }
         }
+        
         if(selectedMinimum != outerLoop)
         {
-            swap(outerLoop, selectedMinimum);
+            swap(selectedMinimum, outerLoop);
         }
     }
 }
-
