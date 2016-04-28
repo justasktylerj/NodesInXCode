@@ -22,7 +22,7 @@ namespace CTECData
         int manyVertices;
         
     public:
-        MorningGraph();
+        MorningGraph(); 
         virtual ~MorningGraph();
         
         void addVertex(const Type& label);
