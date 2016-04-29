@@ -12,10 +12,14 @@
 #include<string>
 
 #include "../Model/Node.h"
+
+#include "../Model/ArrayNode.cpp"
+#include "../Model/CTECBinaryTree.h"
+#include "../Model/CTECBinayTree.cpp"
 #include "../Model/ArrayNode.h"
 #include "../Model/CTECArray.h"
 #include "../Model/Timer.h"
-#include "../Model/CTECList.h"
+#include "../Model/CTECList.cpp"
 
 using namespace std;
 
@@ -38,6 +42,9 @@ private:
     void mergeSort(int [] dataArray, int size);
     void merge(int data [], int sizeOne, int sizeTwo);
     
+    void tryGraphs();
+    
+    void tryTree();
 public:
 	NodeController();
 	virtual ~NodeController();

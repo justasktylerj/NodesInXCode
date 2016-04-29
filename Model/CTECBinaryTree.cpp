@@ -38,65 +38,41 @@ bool CTECBinaryTree:: insert(const Type& value)
     }
     else
     {
-        if(value < root->getValue())
-        {
-            insert(value, root->getLeftChild())
-        }
-        else
-        {
-            insert(value, root->getRightChild())
-        }
-        return true;
-    }
-}
-
-template <class Type>
-void CTECBinaryTree<Type> :: insert(const Type& value, CTECBinaryTree<Type> * currentTree)
-{
-    TreeNode<Type> * insertNode(value);
-    TreeNode<Type> * current;
-    TreeNode<Type> * trailingCurrent;
-    assert(insertedNode != nullptr);
-    
-    if(contains(value))
-    {
-        return false;
-    }
-    else
-    {
+        TreeNode<Type> * currentNode = root;
+        TreeNode<Type> * trailNode;
+        
         if(root == nullptr)
         {
-            root = insertedNode;
+            root = new TreeNode<Type>(value);
         }
         else
         {
-            current = root;
-            
-            while (current != nullptr)
+            while (currentNode != nullptr)
             {
-                trailingCurrent = current;
+                trailNode = currentNode;
                 
-                if ( current->getValue() > value)
+                if (currentNode->getValue() < value)
                 {
-                    current = current->getLeftChild();
+                    currentNode = currentNode->getRightChild();
                 }
                 else
                 {
-                    current = current->getRightChild();
+                    currentNode = currentNode->getLeftChild();
                 }
             }
-            if(trailingCurrent->getValue() > value)
+            if(trailNode->getValue() > value)
             {
-                trailingCurrent->setLeftChild(insertedNode);
+                trailNode->setLeftChild(new TreeNode<Type>(value, trailNode));
             }
             else
             {
-                trailingCurrent->setParent(trailingCurrent);
+                TreeNode<Type> * insertedNode = new TreeNode<Type>(value, trailNode);
+                trailNode->setRightChild(insertedNode);
             }
-            insertedNode->setParent(trailingCurrent)
         }
-        return true;
     }
+    return true;
+
 }
 
 template <class Type>

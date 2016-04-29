@@ -6,41 +6,41 @@
  */
 
 #include "Node.h"
-
-//using namespace std;
+using namespace CTECData;
 
 template <class Type>
 Node<Type>::Node()
 {
-	pointers = nullptr;
+    this->pointers = nullptr;
 }
 
 template <class Type>
-Node<Type>:: Node(const Type& value)
+Node<Type>::Node(const Type& value)
 {
-	this->value = value;
-	pointers = nullptr;
+    this->value = value;
+    this->pointers = nullptr;
 }
 
 template <class Type>
 Node<Type>::~Node()
 {
-
+    // TODO Auto-generated destructor stub
 }
 
 template <class Type>
 Type Node<Type> :: getValue()
 {
-	return this->value;
+    return this->value;
 }
 
 template <class Type>
 void Node<Type> :: setValue(const Type& value)
 {
-	this->value = value;
+    this->value = value;
 }
+
 template <class Type>
-Node<Type> * Node<Type> :: getPointers()
+Node<Type>* Node<Type> :: getPointers()
 {
-	return this->pointers;
+    return this->pointers;
 }

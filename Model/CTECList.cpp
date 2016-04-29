@@ -19,13 +19,6 @@ CTECList<Type>::CTECList()
     
 }
 
-/*
- * 1: Start at head
- * 2: Iterate over nodes
- * 3: Update position, then delete
- * 4: Delete final
- * 5: Reset size, head, end to default
- */
 template<class Type>
 CTECList<Type>::~CTECList()
 {
@@ -56,11 +49,6 @@ CTECList<Type>::~CTECList()
     size = 0;
 }
 
-/**
- * 1. Creates a new ArrayNode with value and head.
- * 2. Updates head.
- * 3. Updates size.
- */
 template<class Type>
 void CTECList<Type>::addToFront(const Type& value)
 {
@@ -74,13 +62,6 @@ void CTECList<Type>::addToFront(const Type& value)
     calculateSize();
 }
 
-/*
- * 1. Create new ArrayNode<Type> with the supplied value.
- * 1.5 Check that the end is not null
- * 2. Adds the node to the end.
- * 3. Update end.
- * 4. Updates size.
- */
 template<class Type>
 void CTECList<Type>::addToEnd(const Type& value)
 {
@@ -131,18 +112,14 @@ void CTECList<Type>::addAtIndex(int index, const Type& value)
 template<class Type>
 Type CTECList<Type>::removeFromFront()
 {
-    Type returnValue; // In case we need to use the value we are removing.
+    Type returnValue;
     
     assert(size > 0);
-    //Find the next spot.
     ArrayNode<Type> * newHead;
     newHead = this->head->getNext();
     
-    //Get what was in the head node!
     returnValue = this->head->getValue();
-    //Remove head
     delete this->head;
-    //Move head to next spot.
     this->head = newHead;
     this->calculateSize();
     
@@ -182,15 +159,12 @@ Type CTECList<Type>::getFromIndex(int index)
 template<class Type>
 Type CTECList<Type>::removeFromIndex(int index)
 {
-    //Check that not removing from an empty list
     assert(this->size > 0);
-    //Check that index is in bounds.
+
     assert(index >= 0 && index < size);
     
-    //Declare an variable of the type to return.
     Type thingToRemove;
-    
-    //Create references
+
     ArrayNode<Type> * previous;
     ArrayNode<Type> * deleteMe;
     ArrayNode<Type> * newNext;
@@ -231,14 +205,6 @@ Type CTECList<Type>::removeFromIndex(int index)
 template<class Type>
 Type CTECList<Type>::removeFromEnd()
 {
-    /**
-     * Check size is valid
-     * Create a return variable
-     * Loop until the next to last Node
-     * Grab the value from the last node
-     * Delete the last node
-     * Set new last node as the end
-     */
     assert(size > 0);
     
     Type returnValue;
@@ -346,9 +312,8 @@ int CTECList<Type> :: nextIndexOf(int startingIndex, Type searchValue)
 template<class Type>
 Type CTECList<Type>::set(int index, const Type& value)
 {
-    //I am out of bounds and need to do something about it.
+
     assert(index < size && index >= 0);
-    //I am in bounds so I am inclusive
     
     Type returnValue;
     ArrayNode<Type> * current = head;

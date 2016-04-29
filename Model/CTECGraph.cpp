@@ -1,19 +1,32 @@
-//
-//  MorningGraph.cpp
-//  NodesInXCode
-//
-//  Created by Jarrard, Tyler on 4/25/16.
-//  Copyright © 2016 CTEC. All rights reserved.
-//
-
-#include "MorningGraph.hpp"
+#include "CTECGraph.h"
+#include <iostream>
+#include <queue>
+using namespace std;
 using namespace CTECData;
 
 template <class Type>
-const int MorningGraph<Type> :: MAXIMUM;
+const int CTECGraph<Type> :: MAXIMUM;
 
 template <class Type>
-const MorningGraph<Type> :: addEdge(int source, int target)
+CTECGraph<Type> :: CTECGraph()
+{
+    this->manyVertices = 0;
+}
+
+template <class Type>
+CTECGraph<Type> :: ~CTECGraph()
+{
+
+}
+
+template <class Type>
+int CTECGraph<Type> :: size() const
+{
+    return manyVertices;
+}
+
+template <class Type>
+void CTECGraph<Type> :: addEdge(int source, int target)
 {
     assert(source < size());
     assert(target < size());
@@ -22,7 +35,7 @@ const MorningGraph<Type> :: addEdge(int source, int target)
 }
 
 template <class Type>
-void MorningGraph<Type> :: addVertex(const Type& vertexLabel)
+void CTECGraph<Type> :: addVertex(const Type& vertexLabel)
 {
     int newVertexNumber;
     int otherNumber;
@@ -44,7 +57,7 @@ void MorningGraph<Type> :: addVertex(const Type& vertexLabel)
 
 
 template <class Type>
-bool MorningGraph<Type> :: isEdge(int source, int target) const
+bool CTECGraph<Type> :: isEdge(int source, int target) const
 {
     bool connected = false;
     
@@ -56,24 +69,24 @@ bool MorningGraph<Type> :: isEdge(int source, int target) const
 }
 
 template <class Type>
-Type& MorningGraph<Type> :: operator[](int vertex)
+Type& CTECGraph<Type> :: operator[](int vertex)
 {
     assert (vertex < size());
     return labels[vertex];
 }
 
 template <class Type>
-Type MorningGraph<Type> :: operator[](int vertex) const
+Type CTECGraph<Type> :: operator[](int vertex) const
 {
     assert (vertex < size());
     return labels[vertex];
 }
 
 template <class Type>
-std::set<int> MorningGraph<Type> :: neighbors(int vertex) const
+std::set<int> CTECGraph<Type> :: neighbors(int vertex) const
 {
     std::set<int> answer;
-    assert(vertex < size()):
+    assert(vertex < size());
     
     for (int index=0; index < size(); index++)
     {
@@ -86,28 +99,31 @@ std::set<int> MorningGraph<Type> :: neighbors(int vertex) const
 }
 
 template <class Type>
-void MorningGraph<Type> :: removeEdge(int source, int target)
+void CTECGraph<Type> :: removeEdge(int source, int target)
 {
-    assert(source < size() && target
+    assert(source < size() && target);
 }
            
 template <class Type>
-void MorningGraph<Type> :: depthFirstTraversal(MorningGraph<Type> currentGraph, int vertex, bool * markedVertices)
+void CTECGraph<Type> :: depthFirstTraversal(CTECGraph<Type> currentGraph, int vertex)
 {
     bool markedVertices[MAXIMUM];
+    assert (vertex < currentGraph.size());
+    std :: fill_n(markedVertices, currentGraph.size(), false);
+    depthFirstTraversal(currentGraph, vertex, markedVertices);
     
 }
 
            
 template <class Type>
-void MorningGraph<Type> :: depthFirstTraversal(MorningGraph<Type> currentGraph, int vertex, bool * markedVertices)
+void CTECGraph<Type> :: depthFirstTraversal(CTECGraph<Type> currentGraph, int vertex, bool * markedVertices)
 {
     std::set<int> connections = currentGraph.neighbors(vertex);
     std::set<int>::iterator setIterator;
         
-/Users/tjar2074/Documents/C++ projects/NodesInXCode/Model/TreeNode.h    markedVertices[vertex] = true;
+    markedVertices[vertex] = true;
     cout << currentGraph[vertex] << endl;
-        
+    
     for(setIterator = connections.begin(); setIterator != connections.end(); setIterator++)
     {
         if(!markedVertices[*setIterator])
@@ -120,12 +136,12 @@ void MorningGraph<Type> :: depthFirstTraversal(MorningGraph<Type> currentGraph, 
            
 
            template <class Type>
-void MorningGraph<Type> :: breadthFirstTraversal(MorningGraph<Type> currentGraph, int vertex)
+void CTECGraph<Type> :: breadthFirstTraversal(CTECGraph<Type> currentGraph, int vertex)
 {
     bool markedVertices[MAXIMUM];
-    std::set<int> connections;
-    std::set<int>::iterator setIterator;
-    std::queue<int> vertesQueue;
+    std :: set<int> connections;
+    std :: set<int>::iterator setIterator;
+    std :: queue<int> vertexQueue;
     assert(vertex < currentGraph.size());
     
     std::fill_n(markedVertices, currentGraph.size(), false);
@@ -137,7 +153,7 @@ void MorningGraph<Type> :: breadthFirstTraversal(MorningGraph<Type> currentGraph
         connections = currentGraph.neighbors(vertexQueue.front());
         vertexQueue.pop();
         
-        for(setIterator = connections.begon(); setIterator != connections.end(); setIterator++)
+        for(setIterator = connections.begin(); setIterator != connections.end(); setIterator++)
         {
             if(!markedVertices[*markedVertices])
             {

@@ -95,14 +95,7 @@ void CTECArray<Type>:: set(int position, const Type& value)
 			}
 		}
 }
-/*
- 1) assert size greatethan 0
- 2) Declare and init valid return varible
- 3) Referance to head and loop
- 4) if there return index else go to next
- 5) return index
- 
- */
+
 template <class Type>
 int CTECArray<Type> :: indexOf(Type searchValue)
 {

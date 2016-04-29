@@ -16,11 +16,11 @@ namespace CTECData
     class Node
     {
     private:
-        Type  value; //What is stored in the Node.
-        Node * pointers; //Reference to the array of nodes this is connected to.
+        Type  value;
+        Node * pointers;
     public:
         Node();
-        Node(const Type& value);  //Creates with a starting value.
+        Node(const Type& value);  
         virtual ~Node();
         Type getValue();
         void setValue(const Type& value);
