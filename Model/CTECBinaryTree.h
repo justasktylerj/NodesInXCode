@@ -17,8 +17,9 @@ class CTECBinaryTree
 private:
     TreeNode<Type> * root;
     int height;
+    int size;
     bool balanced;
-    bool contains(Type value, CTECBinaryTree<Type> * currentTree);
+    bool contains(Type value, TreeNode<Type> * currentTree);
     void calculateSize(TreeNode<Type> * currentNode);
     TreeNode<Type> * getRightMostChild(CTECBinaryTree * leftSubTree);
     TreeNode<Type> * getLeftMostChild(CTECBinaryTree * rightSubTree);
@@ -28,7 +29,8 @@ public:
     ~CTECBinaryTree();
     bool insert(const Type& value);
     bool contains(Type value);
-    Type remove(const Type& value);
+    
+    void remove(const Type& value);
     int getHeight();
     int getSize();
     bool isBalanced();

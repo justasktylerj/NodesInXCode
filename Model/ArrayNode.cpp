@@ -45,4 +45,3 @@ Node<Type>* Node<Type> :: getPointers()
 {
     return this->pointers;
 }
-

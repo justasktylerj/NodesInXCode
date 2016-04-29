@@ -20,9 +20,8 @@ CTECBinaryTree<Type> :: CTECBinaryTree()
     size = 0;
 }
 
-
 template <class Type>
-CTECBinaryTree<Type> :: CTECBinaryTree()
+CTECBinaryTree<Type> :: ~CTECBinaryTree()
 {
     while(root != nullptr)
     {
@@ -30,7 +29,7 @@ CTECBinaryTree<Type> :: CTECBinaryTree()
     }
 }
 template <class Type>
-bool CTECBinaryTree:: insert(const Type& value)
+bool CTECBinaryTree<Type> :: insert(const Type& value)
 {
     if(contains(value))
     {
@@ -82,7 +81,7 @@ void CTECBinaryTree<Type> :: remove(const Type& value)
     TreeNode<Type> * trailing = current;
     if(!contains(value))
     {
-        return
+        return value;
     }
     else
     {
@@ -101,21 +100,21 @@ void CTECBinaryTree<Type> :: remove(const Type& value)
         
         if(current == root)
         {
-            remove(root)
+            remove(root);
         }
         else if (trailing->getValue() > value)
         {
-            remove(trailing->getLeftChild
+            remove(trailing->getLeftChild);
         }
         else
         {
-            remove(trailing->getRightChild)
+            remove(trailing->getRightChild);
         }
     }
 }
 
 template <class Type>
-void CTECBinaryTree:: inOrderTraversal<Type> * currentNode)
+void CTECBinaryTree<Type> :: inOrderTraversal(TreeNode<Type> * currentNode)
 {
     if (currentNode != nullptr)
     {
@@ -126,7 +125,7 @@ void CTECBinaryTree:: inOrderTraversal<Type> * currentNode)
 }
 
 template <class Type>
-void CTECBinaryTree:: postOrderTraversal<Type> * currentNode)
+void CTECBinaryTree<Type> :: postOrderTraversal(TreeNode<Type> * currentNode)
 {
     if (currentNode != nullptr)
     {
@@ -137,7 +136,7 @@ void CTECBinaryTree:: postOrderTraversal<Type> * currentNode)
 }
 
 template <class Type>
-void CTECBinaryTree:: preOrderTraversal<Type> * currentNode)
+void CTECBinaryTree<Type> :: preOrderTraversal(TreeNode<Type> * currentNode)
 {
     if (currentNode != nullptr)
     {
@@ -148,17 +147,15 @@ void CTECBinaryTree:: preOrderTraversal<Type> * currentNode)
 }
 
 template <class Type>
-void CTECBinaryTree:<Type> :: getSize()
+int CTECBinaryTree<Type> :: getSize()
 {
-    size = 0;
     calculateSize(root);
     return size;
-    
 }
 
         
 template <class Type>
-void CTECBinaryTree:<Type> :: calculateSize(TreeNode<Type> * currentNode)
+void CTECBinaryTree<Type> :: calculateSize(TreeNode<Type> * currentNode)
 {
     if(currentNode != nullptr)
     {
@@ -170,26 +167,44 @@ void CTECBinaryTree:<Type> :: calculateSize(TreeNode<Type> * currentNode)
 }
         
 template <class Type>
-bool CTECBinaryTree:<Type> :: contains(Type value, CTECBinaryTree<Type> currentTree)
+bool CTECBinaryTree<Type> :: contains(Type value)
 {
-    if(currentTree == nullptr)
-    {
-        return false;
-    }
-    
-    if(root->getValue == value)
+    if(root->getValue() == value)
     {
         return true;
     }
-    else if(value < currentTree->getValue())
+    else if(value < root->getValue())
     {
-        return contains(value, currentTree->getLeftChild());
+        return contains(value, root->getLeftChild());
     }
     else
     {
-        return contains(value, currentTree->getRightChild());
+        return contains(value, root->getRightChild());
     }
-    return false;
+}
+
+template <class Type>
+bool CTECBinaryTree<Type> :: contains(Type value, TreeNode<Type> * currentTree)
+{
+    bool isInTree = false;
+    if (currentTree == nullptr)
+    {
+        isInTree = false;
+    }
+    
+    if (currentTree->getValue() == value)
+    {
+        isInTree = true;
+    }
+    else if (value < currentTree->getValue())
+    {
+        isInTree = contains(value, currentTree->getLeftChild());
+    }
+    else
+    {
+        isInTree = contains(value, currentTree->getRightChild());
+    }
+    return isInTree;
 }
  
 template <class Type>
@@ -248,10 +263,10 @@ void CTECBinaryTree<Type> :: remove(TreeNode<Type> * nodeToRemove)
     }
     else
     {
-        current = nodeTpRemove->getLeftChild();
+        current = nodeToRemove->getLeftChild();
         trailing = nullptr;
         
-        while(current->getRightChild != nullptr)
+        while(current->getRightChild() != nullptr)
         {
             trailing = current;
             current = current-> getRightChild();

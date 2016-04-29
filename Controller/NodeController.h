@@ -15,7 +15,7 @@
 
 #include "../Model/ArrayNode.cpp"
 #include "../Model/CTECBinaryTree.h"
-#include "../Model/CTECBinayTree.cpp"
+#include "../Model/CTECBinaryTree.cpp"
 #include "../Model/ArrayNode.h"
 #include "../Model/CTECArray.h"
 #include "../Model/Timer.h"
@@ -28,22 +28,21 @@ class NodeController
 private:
     CTECList<int> * numbers;
 	Timer arrayTimer;
-	void testLists();
+	void testList();
     void sortData();
-    void searchTest();
+    void searchList();
     
-    void swap(int indexOne, int indexTwo);
-    int partition(int first, in last);
+    void swap(int first, int second);
+    int partition(int first, int last);
     void doQuick();
-    void quickSort(int data[], int size);
+    void quickSort(int first, int last);
 
     int * mergeData;
     void doMergeSort();
-    void mergeSort(int [] dataArray, int size);
+    void mergeSort(int data[], int size);
     void merge(int data [], int sizeOne, int sizeTwo);
     
-    void tryGraphs();
-    
+    void tryGraph();
     void tryTree();
 public:
 	NodeController();

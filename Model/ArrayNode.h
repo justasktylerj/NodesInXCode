@@ -26,3 +26,5 @@ namespace CTECData
         void setNext(ArrayNode * next);
     };
 }
+
+#endif /* MODEL_ARRAYNODE_H_ */
