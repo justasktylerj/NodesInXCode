@@ -23,16 +23,19 @@ namespace CTECData
         double efficiencyPercentage;
         int size;
         Type * internalStorage;
+        CTECArray<Type> * internalArray;
         
         int findPosition(const Type& value);
         int handleCollision(const Type& value);
         void updateSize();
         
     public:
-        MorningHashTable();
-        ~MorningHashTable();
+        HashTable();
+        ~HashTable();
+        
         void add(const Type& value);
         bool remove(const Type& value);
         bool contains(const Type& value);
+        int getSize();
     };
 }
