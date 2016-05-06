@@ -7,6 +7,7 @@
 
 #include "ArrayNode.h"
 
+
 using namespace CTECData;
 
 template <class Type>
