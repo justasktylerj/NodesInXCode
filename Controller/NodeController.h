@@ -12,15 +12,23 @@
 #include<string>
 
 #include "../Model/Node.h"
-
+#include "../Model/Node.cpp"
 #include "../Model/ArrayNode.cpp"
+#include "../Model/ArrayNode.h"
 #include "../Model/CTECBinaryTree.h"
 #include "../Model/CTECBinaryTree.cpp"
-#include "../Model/ArrayNode.h"
 #include "../Model/CTECArray.h"
+#include "../Model/CTECArray.cpp"
 #include "../Model/Timer.h"
+#include "../Model/Timer.cpp"
 #include "../Model/CTECList.cpp"
+#include "../Model/CTECList.h"
 #include "../Model/CTECGraph.cpp"
+#include "../Model/CTECGraph.h"
+#include "../Model/TreeNode.cpp"
+#include "../Model/TreeNode.h"
+#include "../Model/HashTable.cpp"
+#include "../Model/HashTable.h"
 
 
 using namespace std;
