@@ -5,6 +5,8 @@
  *      Author: tjar2074
  */
 #include "CTECList.h"
+
+
 #include <assert.h>
 using namespace std;
 
@@ -142,7 +144,7 @@ template<class Type>
 Type CTECList<Type>::getFromIndex(int index)
 {
     assert(size > 0 && index >= 0 && index < size);
-    Type returnValue;
+    Type returnValue = 0;
     ArrayNode<Type> * current = head;
     
     for(int spot = 0; spot <= index; spot++)
@@ -165,9 +167,9 @@ Type CTECList<Type>::removeFromIndex(int index)
     
     Type thingToRemove;
 
-    ArrayNode<Type> * previous;
-    ArrayNode<Type> * deleteMe;
-    ArrayNode<Type> * newNext;
+    ArrayNode<Type> * previous = nullptr;
+    ArrayNode<Type> * deleteMe = nullptr;
+    ArrayNode<Type> * newNext = nullptr;
     
     if (index == 0)
     {

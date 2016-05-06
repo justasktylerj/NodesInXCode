@@ -38,7 +38,7 @@ bool CTECBinaryTree<Type> :: insert(const Type& value)
     else
     {
         TreeNode<Type> * currentNode = root;
-        TreeNode<Type> * trailNode;
+        TreeNode<Type> * trailNode = nullptr;
         
         if(root == nullptr)
         {
