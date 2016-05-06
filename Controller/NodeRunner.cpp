@@ -13,7 +13,7 @@ int main()
 
 	for(int spot = 0; spot < 5; spot++)
 	{
-		//moreNumbers[spot] = (spot * 34324 + 525562625625) % 214234.3;
+		moreNumbers[spot] = (spot * 34324 + 525562625625) % 2142343;
 	}
 	NodeController * baseController = new NodeController();
 	baseController->start();

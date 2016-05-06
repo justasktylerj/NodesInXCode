@@ -140,7 +140,7 @@ void NodeController :: quickSort(int first, int last)
     {
         pivotIndex = partition(first, last);
         quickSort(first, pivotIndex - 1);
-        quickSort(pivotIndex + 1), last);
+        quickSort(pivotIndex + 1, last);
         
     }
 }
@@ -213,8 +213,8 @@ void NodeController :: tryTree()
 void NodeController :: tryGraph()
 {
     CTECGraph<int> testGraph;
-    testGraph.addVertex(7)
-    testGraph.addVertex(18)
+    testGraph.addVertex(7);
+    testGraph.addVertex(18);
     
     testGraph.addEdge(0, 1);
     testGraph.addEdge(1, 0);

@@ -276,7 +276,7 @@ void CTECBinaryTree<Type> :: remove(TreeNode<Type> * nodeToRemove)
         
         if(trailing == nullptr)
         {
-            nodeToRemove->setLeftChild(current->getLeftChld());
+            nodeToRemove->setLeftChild(current->getRightChild());
         }
         else
         {

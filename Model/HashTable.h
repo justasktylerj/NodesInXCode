@@ -23,7 +23,6 @@ namespace CTECData
         double efficiencyPercentage;
         int size;
         Type * internalStorage;
-        CTECArray<Type> * internalArray;
         
         int findPosition(const Type& value);
         int handleCollision(const Type& value);

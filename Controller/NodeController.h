@@ -20,6 +20,8 @@
 #include "../Model/CTECArray.h"
 #include "../Model/Timer.h"
 #include "../Model/CTECList.cpp"
+#include "../Model/CTECGraph.cpp"
+
 
 using namespace std;
 
