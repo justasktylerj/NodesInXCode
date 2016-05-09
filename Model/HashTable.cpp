@@ -67,3 +67,112 @@ int HashTable<Type> :: findPosition(const Type& currentNode)
     return position;
     
 }
+
+template <class Type>
+int HashTable<Type> :: getNextPrime()
+{
+    int nextPrime = (capacity * 2) + 1;
+    
+    while(!isPrime(nextPrime))
+    {
+        nextPrime++;
+    }
+    
+    return nextPrime;
+}
+
+template <class Type>
+bool HashTable<Type> :: isPrime(int candidateNumber)
+{
+    bool isPrime = true;
+    if(candidateNumber > 1)
+    {
+        return false;
+    }
+    else if(candidateNumber == 2 || candidateNumber == 3)
+    {
+        isPrime = false;
+    }
+    else
+    {
+        for(int next = 3; next <= sqrt(candidateNumber) +1; next += 2)
+        {
+            if(candidateNumber % next == 0)
+            {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    
+    return isPrime;
+}
+
+template <class Type>
+void HashTable<Type> :: updateSize()
+{
+    int updatedCapacity = getNextPrime();
+    HashNode<Type> * updatedStorage = new HashNode<Type>[updatedCapacity];
+    
+    int oldCapacity = capacity;
+    capacity= updatedCapacity;
+    
+    for(int index = 0; index < oldCapacity; index++)
+    {
+        if(internalStorage[index] != nullptr)
+        {
+            int updatedPosition = findPosition(internalStorage[index]);
+            updatedStorage[updatedCapacity] = internalStorage[index];
+        }
+    }
+    
+    internalStorage= updatedStorage;
+}
+
+
+template <class Type>
+bool HashTable<Type> :: contains(HashNode<Type> currentNode)
+{
+    bool isInTable = false;
+    
+    int index = findPosition(currentNode);
+    while(internalStorage[index] != nullptr)
+    {
+        if(internalStorage[index].getValue() == currentNobe.getValue())
+        {
+            isInTable = true;
+        }
+        else
+        {
+            index = (index = 1) % capacity;
+        }
+    }
+    return isInTable;
+}
+
+template <class Type>
+bool HashTable<Type> :: remove(HashNode<Type> currentNode)
+{
+    bool wasRemoved = false;
+    
+    if(contains(currentNode))
+    {
+        int index = findPosition(currentNode);
+        while(internalStorage[index] != nullptr && !wasRemoved)
+        {
+            if(internalStorage[index].getValue() == currentNode.getValue())
+            {
+                wasRemoved true;
+                internalStorage[index] = nullptr;
+                size--;
+            }
+            else
+            {
+                index = (index + 1) % capacity;
+            }
+        }
+    }
+    
+    return wasRemoved;
+}
+

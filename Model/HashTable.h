@@ -28,6 +28,9 @@ namespace CTECData
         int handleCollision(const Type& value);
         void updateSize();
         
+        int getNextPrime();
+        bool isPrime(int candidateNumber);
+        
     public:
         HashTable();
         ~HashTable();
