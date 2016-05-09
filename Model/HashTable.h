@@ -22,7 +22,7 @@ namespace CTECData
         int capacity;
         double efficiencyPercentage;
         int size;
-        Type * internalStorage;
+        HashNode<Type> * internalStorage;
         
         int findPosition(const Type& value);
         int handleCollision(const Type& value);

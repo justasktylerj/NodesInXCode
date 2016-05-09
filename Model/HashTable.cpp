@@ -36,20 +36,34 @@ void HashTable<Type> :: add(const Type& value)
 {
     if(!contains(value))
     {
-        int positionToInsert = findPosition(value);
+        if(this->size/this->capacity >= this->efficencyPercentage)
+        {
+            updateSize();
+        }
+        int positionToInsert = findPosition(currentNode);
         
         if(internalStorage[positionToInsert] != nullptr)
         {
             while(internalStorage[positionToInsert] != nullptr)
             {
-                positionToInsert += positionToInsert +1 % size;
+                positionToInsert = [positionToInsert +1] % capacity;
             }
-            internalStorage[positionToInsert] = value;
+            internalStorage[positionToInsert] = currentNode;
         }
         else
         {
-            internalStorage[positionToInsert] = value;
+            internalStorage[positionToInsert] = currentNode;
         }
     }
 }
 
+template <class Type>
+int HashTable<Type> :: findPosition(const Type& currentNode)
+{
+    int position = 0;
+    
+    position = currentNode.getKey() % capacity;
+    
+    return position;
+    
+}
