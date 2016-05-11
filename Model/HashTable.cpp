@@ -15,8 +15,8 @@ HashTable<Type> :: HashTable()
     this->capacity = 101;
     this->efficiencyPercentage = .667;
     this->size = 0;
-    this->internalStorage = new Type[capacity];
-    this->tableStorage = new CTECList<HashNode <Type>>[capacity];
+    this->internalStorage = new Type[tableCapacity];
+    this->tableStorage = new CTECList<HashNode <Type>>[tableCapacity];
 }
 
 template <class Type>
@@ -80,15 +80,17 @@ void HashTable<Type> :: add(HashNode<Type> currentNode)
 }
 
 template <class Type>
-int HashTable<Type> :: findPosition(const Type& currentNode)
+int HashTable<Type> :: findTablePosition(HashNode<Type> currentNode)
 {
     int position = 0;
     
-    position = currentNode.getKey() % capacity;
+    position = currentNode.getKey() % tableCapacity;
     
     return position;
     
 }
+
+
 
 template <class Type>
 int HashTable<Type> :: getNextPrime()
@@ -136,8 +138,8 @@ void HashTable<Type> :: updateSize()
     int updatedCapacity = getNextPrime();
     HashNode<Type> * updatedStorage = new HashNode<Type>[updatedCapacity];
     
-    int oldCapacity = capacity;
-    capacity= updatedCapacity;
+    int oldTalbeCapacity = tableCapacity;
+    tableCapacity= updatedCapacity;
     
     for(int index = 0; index < oldCapacity; index++)
     {
@@ -151,6 +153,40 @@ void HashTable<Type> :: updateSize()
     internalStorage= updatedStorage;
 }
 
+template <class Type>
+void HashTable<Type> :: updateTableCapacity()
+{
+    int updatedCapacity = getNextPrime();
+    CTECList<HashNode<Type>> * new CTECList<HashNode<Type>> [updatedCapacity];
+    
+    int oldTableCapacity = tableCapacity;
+    tableCapacity= updatedCapacity;
+
+    for(int index = 0; index < oldTableCapacity; index++)
+    {
+        if(internalStorage[index] != nullptr)
+        {
+            CTECList<HashNode<Type>> temp = tableStorage[index];
+           
+            for(int innerIndex = 0; innnerIndex < tableStorage[index].getSize(); innerIndex++)
+            {
+                int updatedTablePosition = findPosition(temp.get(index));
+                if(updatedTable[updatedTablePosition] == nullptr)
+                {
+                    CTECList<HashNode<Type>> updatedList;
+                    updatedList.addEnd(temp.get(index));
+                }
+                else
+                {
+                    updatedTable[updatedTablePosition].addEnd(temp.get(index));
+                }
+            }
+        }
+    }
+
+    
+}
+
 
 template <class Type>
 bool HashTable<Type> :: contains(HashNode<Type> currentNode)
@@ -160,7 +196,7 @@ bool HashTable<Type> :: contains(HashNode<Type> currentNode)
     int index = findPosition(currentNode);
     while(internalStorage[index] != nullptr)
     {
-        if(internalStorage[index].getValue() == currentNobe.getValue())
+        if(internalStorage[index].getValue() == currentNode.getValue())
         {
             isInTable = true;
         }
