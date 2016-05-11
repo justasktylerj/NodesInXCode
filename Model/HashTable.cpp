@@ -16,6 +16,7 @@ HashTable<Type> :: HashTable()
     this->efficiencyPercentage = .667;
     this->size = 0;
     this->internalStorage = new Type[capacity];
+    this->tableStorage = new CTECList<HashNode <Type>>[capacity];
 }
 
 template <class Type>
@@ -28,13 +29,34 @@ template <class Type>
 HashTable<Type> :: ~HashTable<Type>()
 {
     delete [] internalStorage;
+    delete [] tableStorage;
 }
 
+template <class Type>
+void HashTable<Type>:: addToTable(HashNode<Type> currentNode)
+{
+    if(this->tableSize/this->tableCapacity >= this->efficencyPercentage)
+    {
+        
+    }
+    
+    int positionToInsert = findPosition(currentNode);
+    if(tableStorage[positionToInsert] == nullptr)
+    {
+        CTECList<HashNode<Type>> hashList;
+        tableStorage[positionToInsert] = hashList;
+        hashList.addEnd(currentNode);
+    }
+    else
+    {
+        tableStorage[positionToInsert].addEnd(currentNode);
+    }
+}
 
 template <class Type>
-void HashTable<Type> :: add(const Type& value)
+void HashTable<Type> :: add(HashNode<Type> currentNode)
 {
-    if(!contains(value))
+    if(!contains(currentNode))
     {
         if(this->size/this->capacity >= this->efficencyPercentage)
         {
@@ -175,4 +197,10 @@ bool HashTable<Type> :: remove(HashNode<Type> currentNode)
     
     return wasRemoved;
 }
+
+template <class Type>
+int HashTable<Type> :: handleCollision(
+
+
+
 

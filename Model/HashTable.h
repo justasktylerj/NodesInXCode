@@ -9,6 +9,8 @@
 #ifndef HashTable_h
 #define HashTable_h
 
+#include "HashNode.cpp"
+#include "CTECList.cpp"
 #include <stdio.h>
 
 #endif /* HashTable_h */
@@ -19,13 +21,15 @@ namespace CTECData
     class HashTable
     {
     private:
-        int capacity;
+        int tableCapacity;
+
         double efficiencyPercentage;
-        int size;
+        int tableSize;
         HashNode<Type> * internalStorage;
+        CTECList<HashNode <Type>> * tableStorage;
         
-        int findPosition(const Type& value);
-        int handleCollision(const Type& value);
+        int findPosition(HashNode<Type> currentNode);
+        int handleCollision(HashNode<Type> currentNode);
         void updateSize();
         
         int getNextPrime();
@@ -35,9 +39,11 @@ namespace CTECData
         HashTable();
         ~HashTable();
         
-        void add(const Type& value);
-        bool remove(const Type& value);
-        bool contains(const Type& value);
+        void add(HashNode<Type> currentNode);
+        void addToTable(HashNode<Type> currentNode);
+        
+        bool remove(HashNode<Type> currentNode);
+        bool contains(HashNode<Type> currentNode);
         int getSize();
     };
 }

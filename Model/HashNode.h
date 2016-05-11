@@ -19,6 +19,7 @@ namespace CTECData
   
     private:
         int key;
+        
         Type value;
     public:
         HashNode()
