@@ -221,5 +221,17 @@ void NodeController :: tryGraph()
     testGraph.addEdge(9, 9);
     
 }
+
+void NodeController::testHashTable()
+{
+    CTECHashTable<int> tempTable;
+    HashNode<int> tempArray[10];
+    for(int spot = 0; spot < 10; spot++)
+    {
+        int randomValue = rand();
+        int randomKey = rand();
+        HashNode<int> tempArray
+    }
+}
  
 

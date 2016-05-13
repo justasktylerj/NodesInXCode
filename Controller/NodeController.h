@@ -54,6 +54,8 @@ private:
     
     void tryGraph();
     void tryTree();
+    
+    void testHashTable();
 public:
 	NodeController();
 	virtual ~NodeController();
