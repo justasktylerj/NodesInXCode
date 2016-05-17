@@ -6,14 +6,14 @@
 //  Copyright © 2016 CTEC. All rights reserved.
 //
 
-#ifndef Graph_h
-#define Graph_h
+#ifndef CTECGraph_h
+#define CTECGraph_h
 
 #include <set>
 
 
 template <class Type>
-class Graph
+class CTECGraph
 {
 private:
     static const int MAXIMUM = 20;
@@ -22,8 +22,8 @@ private:
     int manyVertices;
     void depthFirstTraversal(Graph<Type> currentGraph, int vertex, bool * markedVertices);
 public:
-    Graph();
-    virtual ~Graph();
+    CTECGraph();
+    virtual ~CTECGraph();
     
     void addVertex(const Type & label);
     void addEdge(int source, int target);

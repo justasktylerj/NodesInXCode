@@ -6,11 +6,11 @@
 //  Copyright © 2016 CTEC. All rights reserved.
 //
 
-#include "CTECHashTable.h"
+#include "HashTable.h"
 #include <cmath>
 
 template <class Type>
-CTECHashTable<Type> :: CTECHashTable()
+HashTable<Type> :: HashTable()
 {
     this->capacity = 101;
     this->efficiencyPercentage = .667;
@@ -20,20 +20,20 @@ CTECHashTable<Type> :: CTECHashTable()
 }
 
 template <class Type>
-CTECHashTable<Type> :: ~CTECHashTable()
+HashTable<Type> :: ~HashTable()
 {
     delete [] internalStorage;
     delete [] tableStorage;
 }
 
 template <class Type>
-int CTECHashTable<Type> :: getSize()
+int HashTable<Type> :: getSize()
 {
     return this->size();
 }
 
 template <class Type>
-void CTECHashTable<Type> :: addToTable(HashNode<Type> currentNode)
+void HashTable<Type> :: addToTable(HashNode<Type> currentNode)
 {
     if (this->size/this->capacity >= this->efficiencyPercentage)
     {
@@ -55,7 +55,7 @@ void CTECHashTable<Type> :: addToTable(HashNode<Type> currentNode)
 }
 
 template <class Type>
-void CTECHashTable<Type> :: add(HashNode<Type> currentNode)
+void HashTable<Type> :: add(HashNode<Type> currentNode)
 {
     if (!contains(currentNode))
     {
@@ -80,14 +80,11 @@ void CTECHashTable<Type> :: add(HashNode<Type> currentNode)
     }
 }
 
-/*
- * Very basic hashing algorithm
- * Simply assigns a position based on modulo math.
- */
+
 template <class Type>
-int CTECHashTable<Type> :: findPosition(HashNode<Type> currentNode)
+int HashTable<Type> :: findPosition(HashNode<Type> currentNode)
 {
-    //We are going to "hash" the key the of HashNode to find itsstorage spot.
+    //We are going to "hash" the key the of HashNode to find its storage spot.
     int position = 0;
     
     position = currentNode.getKey() % capacity;
@@ -95,14 +92,9 @@ int CTECHashTable<Type> :: findPosition(HashNode<Type> currentNode)
     return position;
 }
 
-/*
- * 1) Calculate prime # for capacity
- * 2) Build new Array
- * 3) Re-insert all nodes into new array
- * 4) Set new Array to old values
- */
+
 template <class Type>
-void CTECHashTable<Type> :: updateSize()
+void HashTable<Type> :: updateSize()
 {
     int updatedCapacity = getNextPrime();
     HashNode<Type> ** updatedStorage = new HashNode<Type>*[updatedCapacity];
@@ -123,7 +115,7 @@ void CTECHashTable<Type> :: updateSize()
 }
 
 template <class Type>
-void CTECHashTable<Type> :: updateTableCapacity()
+void HashTable<Type> :: updateTableCapacity()
 {
     int updatedCapacity = getNextPrime();
     CTECList<HashNode<Type>> * updateTable = new CTECList<HashNode<Type>>[updatedCapacity];
@@ -156,7 +148,7 @@ void CTECHashTable<Type> :: updateTableCapacity()
 }
 
 template <class Type>
-int CTECHashTable<Type> :: getNextPrime()
+int HashTable<Type> :: getNextPrime()
 {
     int nextPrime = (capacity * 2) + 1;
     
@@ -169,7 +161,7 @@ int CTECHashTable<Type> :: getNextPrime()
 }
 
 template <class Type>
-bool CTECHashTable<Type> :: isPrime(int candidateNumber)
+bool HashTable<Type> :: isPrime(int candidateNumber)
 {
     bool isPrime = true;
     
@@ -201,7 +193,7 @@ bool CTECHashTable<Type> :: isPrime(int candidateNumber)
 }
 
 template <class Type>
-bool CTECHashTable<Type> :: contains(HashNode<Type> currentNode)
+bool HashTable<Type> :: contains(HashNode<Type> currentNode)
 {
     bool isInTable = false;
     
@@ -223,7 +215,7 @@ bool CTECHashTable<Type> :: contains(HashNode<Type> currentNode)
 }
 
 template <class Type>
-bool CTECHashTable<Type> :: remove(HashNode<Type> currentNode)
+bool HashTable<Type> :: remove(HashNode<Type> currentNode)
 {
     bool wasRemoved = false;
     if (contains(currentNode))
@@ -249,7 +241,7 @@ bool CTECHashTable<Type> :: remove(HashNode<Type> currentNode)
 }
 
 template <class Type>
-int CTECHashTable<Type> :: handleCollision(HashNode<Type> currentNode)
+int HashTable<Type> :: handleCollision(HashNode<Type> currentNode)
 {
     int reHashedPosition = findPosition(currentNode);
     int random = rand();
