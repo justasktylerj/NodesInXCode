@@ -7,42 +7,41 @@
 
 #include "ArrayNode.h"
 
-
-using namespace CTECData;
-
-template <class Type>
-Node<Type>::Node()
+template<class Type>
+ArrayNode<Type>::ArrayNode() : Node<Type>()
 {
-    this->pointers = nullptr;
+    this->next = nullptr;
 }
 
-template <class Type>
-Node<Type>::Node(const Type& value)
+template<class Type>
+ArrayNode<Type>::ArrayNode(const Type& value) : Node<Type>(value)
 {
-    this->value = value;
-    this->pointers = nullptr;
+    this->next = nullptr;
+    this->setValue(value);
 }
 
-template <class Type>
-Node<Type>::~Node()
+template<class Type>
+ArrayNode<Type>::ArrayNode(const Type& value, ArrayNode * next) : Node<Type>(value)
+{
+    this->setValue(value);
+    this-> next = next;
+}
+
+template<class Type>
+ArrayNode<Type>::~ArrayNode()
 {
     // TODO Auto-generated destructor stub
 }
 
 template <class Type>
-Type Node<Type> :: getValue()
+void ArrayNode<Type> :: setNext(ArrayNode<Type> * next)
 {
-    return this->value;
+    this->next = next;
 }
 
-template <class Type>
-void Node<Type> :: setValue(const Type& value)
-{
-    this->value = value;
-}
 
 template <class Type>
-Node<Type>* Node<Type> :: getPointers()
+ArrayNode<Type> * ArrayNode<Type> :: getNext()
 {
-    return this->pointers;
+    return this->next;
 }
