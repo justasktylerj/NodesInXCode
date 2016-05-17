@@ -16,9 +16,9 @@
 #include "../Model/CTECArray.cpp"
 #include "../Model/CTECList.cpp"
 #include "../Model/CTECBinaryTree.cpp"
-#include "../Model/Graph.cpp"
+#include "../Model/CTECGraph.cpp"
 #include "../Model/Timer.h"
-#include "../Model/CTECHashTable.cpp"
+#include "../Model/HashTable.cpp"
 
 
 using namespace std;

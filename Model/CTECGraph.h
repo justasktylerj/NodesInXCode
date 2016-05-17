@@ -13,7 +13,7 @@
 
 
 template <class Type>
-class CTECGraph
+class Graph
 {
 private:
     static const int MAXIMUM = 20;
@@ -22,8 +22,8 @@ private:
     int manyVertices;
     void depthFirstTraversal(Graph<Type> currentGraph, int vertex, bool * markedVertices);
 public:
-    CTECGraph();
-    virtual ~CTECGraph();
+    Graph();
+    virtual ~Graph();
     
     void addVertex(const Type & label);
     void addEdge(int source, int target);
@@ -37,4 +37,4 @@ public:
     void breadthFirstTraversal(Graph<Type> currentGh, int vertex);
 };
 
-#endif /* Graph_h */
+#endif /* CTECGraph_h */

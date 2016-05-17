@@ -156,7 +156,7 @@ void NodeController :: tryGraph()
 
 void NodeController :: testHashTable()
 {
-    CTECHashTable<int> tempTable;
+    HashTable<int> tempTable;
     HashNode<int> tempArray[10];
     
     for (int spot = 0; spot < 10; spot++)
