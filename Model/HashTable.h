@@ -6,44 +6,24 @@
 //  Copyright © 2016 CTEC. All rights reserved.
 //
 
-#ifndef HashTable_h
-#define HashTable_h
+#ifndef HashNode_h
+#define HashNode_h
 
-#include "HashNode.cpp"
-#include "CTECList.cpp"
-#include <stdio.h>
+#include <iostream>
 
-#endif /* HashTable_h */
-
-namespace CTECData
+template <class Type>
+class HashNode
 {
-    template <class Type>
-    class HashTable
-    {
-    private:
-        int tableCapacity;
+private:
+    int key;
+    Type value;
+public:
+    HashNode();
+    HashNode(int key, const Type & value);
+    void setKey(int key);
+    void setValue(const Type & value);
+    int getKey();
+    Type getValue();
+};
 
-        double efficiencyPercentage;
-        int tableSize;
-        HashNode<Type> * internalStorage;
-        CTECList<HashNode <Type>> * tableStorage;
-        
-        int findPosition(HashNode<Type> currentNode);
-        int handleCollision(HashNode<Type> currentNode);
-        void updateSize();
-        
-        int getNextPrime();
-        bool isPrime(int candidateNumber);
-        
-    public:
-        HashTable();
-        ~HashTable();
-        
-        void add(HashNode<Type> currentNode);
-        void addToTable(HashNode<Type> currentNode);
-        
-        bool remove(HashNode<Type> currentNode);
-        bool contains(HashNode<Type> currentNode);
-        int getSize();
-    };
-}
+#endif /* HashNode_h */

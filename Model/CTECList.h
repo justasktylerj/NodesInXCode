@@ -9,35 +9,32 @@
 #define MODEL_CTECLIST_H_
 
 #include "ArrayNode.h"
-namespace CTECData
+
+template <class Type>
+class CTECList
 {
-    template <class Type>
-    class CTECList
-    {
-    private:
-        ArrayNode<Type> * head;
-        ArrayNode<Type> * end;
-        int size;
-        void swap(int indexOne, int indexTwo);
-        void calculateSize();
-    public:
-        CTECList();
-        virtual ~CTECList();
-        int getSize();
-        void addToFront(const Type& value);
-        void addToEnd(const Type& value);
-        void addAtIndex(int index, const Type& value);
-        Type getFront();
-        Type getEnd();
-        Type getFromIndex(int index);
-        Type removeFromFront();
-        Type removeFromEnd();
-        Type removeFromIndex(int index);
-        Type set(int index, const Type& value);
-        int indexOf(Type searchValue);
-        int nextIndexOf(int startingIndex, Type searchValue);
-        void selectionSort();
-    };
-}
+private:
+    int size;
+    ArrayNode<Type> * head;
+    ArrayNode<Type> * end;
+    void calculateSize();
+    void swap(int indexOne, int indexTwo);
+public:
+    CTECList();
+    ~CTECList();
+    int getSize();
+    Type getFront();
+    Type getEnd();
+    Type getFromIndex(int index);
+    void addToFront(const Type& value);
+    void addToEnd(Type value);
+    void addAtIndex(int index, Type value);
+    Type removeFromFront();
+    Type removeFromEnd();
+    Type removeFromIndex(int index);
+    void set(int index, Type value);
+    int indexOf(Type searchValue);
+    void selectionSort();
+};
 
 #endif /* MODEL_CTECLIST_H_ */

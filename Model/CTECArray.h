@@ -10,26 +10,23 @@
 
 #include "ArrayNode.h"
 
-namespace CTECData
+template <class Type>
+class CTECArray
 {
-    template <class Type>
-    class CTECArray
-    {
-    private:
-        int size;
-        ArrayNode<Type> * head;
-        void swap(int indexOne, int indexTwo);
-    public:
-        CTECArray(int size);
-        virtual ~CTECArray();
-        int getSize();
-        void set(int position, const Type& value);
-        Type get(int position);
-        int indexOf(Type searchValue);
-        int nextIndexOf(int startingIndex, Type searchValue);
-        void selectionSort();
-        
-    };
-}
+private:
+    int size;
+    ArrayNode<Type> * head;
+    void swap(int indexOne, int indexTwo);
+public:
+    CTECArray(int size);
+    virtual ~CTECArray();
+    int getSize();
+    int indexOf(Type value);
+    int nextIndexOf(int startingIndex, Type searchValue);
+    Type get(int position);
+    void set(int position, const Type& value);
+    void selectionSort();
+    
+};
 
 #endif /* MODEL_CTECARRAY_H_ */
