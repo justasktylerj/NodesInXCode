@@ -6,19 +6,19 @@
  */
 
 #include "Node.h"
-using namespace CTECData;
+using namespace std;
 
 template <class Type>
 Node<Type>::Node()
 {
-    this->pointers = nullptr;
+    pointers = nullptr;
 }
 
 template <class Type>
 Node<Type>::Node(const Type& value)
 {
     this->value = value;
-    this->pointers = nullptr;
+    pointers = nullptr;
 }
 
 template <class Type>
@@ -40,7 +40,7 @@ void Node<Type> :: setValue(const Type& value)
 }
 
 template <class Type>
-Node<Type>* Node<Type> :: getPointers()
+Node<Type> * Node<Type> :: getPointers()
 {
     return this->pointers;
 }

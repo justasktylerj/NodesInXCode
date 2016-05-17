@@ -10,22 +10,19 @@
 
 #include <iostream>
 
-namespace CTECData
+template <class Type>
+class Node
 {
-    template <class Type>
-    class Node
-    {
-    private:
-        Type  value;
-        Node * pointers;
-    public:
-        Node();
-        Node(const Type& value);  
-        virtual ~Node();
-        Type getValue();
-        void setValue(const Type& value);
-        Node * getPointers();
-    };
-}
+private:
+    Type value;
+    Node * pointers;	
+public:
+    Node();
+    Node(const Type& value);
+    virtual ~Node();
+    Type getValue();
+    void setValue(const Type& value);
+    Node * getPointers();
+};
 
 #endif /* MODEL_NODE_H_ */

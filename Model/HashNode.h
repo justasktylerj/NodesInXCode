@@ -9,25 +9,21 @@
 #ifndef HashNode_h
 #define HashNode_h
 
-#include <stdio.h>
+#include <iostream>
 
-namespace CTECData
+template <class Type>
+class HashNode
 {
-    template <class Type>
-    class HashNode
-    {
-  
-    private:
-        int key;
-        
-        Type value;
-    public:
-        HashNode()
-        void setKey(int key);
-        void setValue(Type value);
-        int getKey();
-        Type getValue();
-    };
-}
+private:
+    int key;
+    Type value;
+public:
+    HashNode();
+    HashNode(int key, const Type & value);
+    void setKey(int key);
+    void setValue(const Type & value);
+    int getKey();
+    Type getValue();
+};
 
 #endif /* HashNode_h */

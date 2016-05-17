@@ -7,18 +7,17 @@
 //
 
 #include "TreeNode.h"
-using namespace CTECData;
 
 template <class Type>
-TreeNode<Type> :: TreeNode() : CTECData::Node<Type>()
+TreeNode<Type> :: TreeNode()
 {
-    this->leftChild = nullptr;
+    this->leftChilde = nullptr;
     this->rightChild = nullptr;
     this->parent = nullptr;
 }
 
 template <class Type>
-TreeNode<Type> :: TreeNode(const Type& value) : CTECData::Node<Type>(value)
+TreeNode<Type> :: TreeNode(const Type & value)
 {
     this->leftChild = nullptr;
     this->rightChild = nullptr;
@@ -28,12 +27,13 @@ TreeNode<Type> :: TreeNode(const Type& value) : CTECData::Node<Type>(value)
 }
 
 template <class Type>
-TreeNode<Type> :: TreeNode(const Type& value, TreeNode<Type> * parent) : CTECData::Node<Type>(value)
+TreeNode<Type> :: TreeNode(const Type & value, TreeNode<Type> * parent)
 {
-    this->leftChild = nullptr;
+    this->leftChilde = nullptr;
     this->rightChild = nullptr;
+    this->parent = nullptr;
     
-    this->setValue(value);
+    this->setVaue(value);
     this->setParent(parent);
 }
 
@@ -44,7 +44,31 @@ void TreeNode<Type> :: setLeftChild(TreeNode<Type> * leftChild)
 }
 
 template <class Type>
+void TreeNode<Type> :: setRightChild(TreeNode<Type> * rightChild)
+{
+    this->rightChild = rightChild;
+}
+
+template <class Type>
+void TreeNode<Type> :: setParent(TreeNode<Type> * parent)
+{
+    this->parent = parent;
+}
+
+template <class Type>
 TreeNode<Type> * TreeNode<Type> :: getLeftChild()
 {
-    return this->leftChild;
+    return leftChild;
+}
+
+template <class Type>
+TreeNode<Type> * TreeNode<Type> :: getRightChild()
+{
+    return rightChild;
+}
+
+template <class Type>
+TreeNode<Type> * TreeNode<Type> :: getParent()
+{
+    return parent;
 }

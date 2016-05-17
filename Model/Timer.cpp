@@ -19,13 +19,13 @@ Timer::~Timer()
     
 }
 
-void Timer::displayTimerInformation()
+void Timer::displayTimerInfo()
 {
     cout << fixed;
     cout << setprecision(8);
     
-    cout << executionTime << " µs (microseconds) for the code " << endl;
-    cout << "Which is " << float(executionTime)/CLOCKS_PER_SEC<< " seconds" << endl;
+    cout << executionTime << " μs (microseconds) for the code " << endl;
+    cout << "Which is " << float(executionTime)/CLOCKS_PER_SEC<< " seconds " << endl;
 }
 
 void Timer::startTimer()
@@ -43,7 +43,7 @@ void Timer::resetTimer()
     executionTime = 0;
 }
 
-long Timer::getExecutionTimeInMicroseconds()
+long Timer::getExecutionTimeInMicroSeconds()
 {
     return executionTime;
 }
