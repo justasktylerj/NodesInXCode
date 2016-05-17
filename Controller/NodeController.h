@@ -11,24 +11,14 @@
 #include <iostream>
 #include<string>
 
-#include "../Model/Node.h"
 #include "../Model/Node.cpp"
 #include "../Model/ArrayNode.cpp"
-#include "../Model/ArrayNode.h"
-#include "../Model/CTECBinaryTree.h"
-#include "../Model/CTECBinaryTree.cpp"
-#include "../Model/CTECArray.h"
 #include "../Model/CTECArray.cpp"
-#include "../Model/Timer.h"
-#include "../Model/Timer.cpp"
 #include "../Model/CTECList.cpp"
-#include "../Model/CTECList.h"
-#include "../Model/CTECGraph.cpp"
-#include "../Model/CTECGraph.h"
-#include "../Model/TreeNode.cpp"
-#include "../Model/TreeNode.h"
-#include "../Model/HashTable.cpp"
-#include "../Model/HashTable.h"
+#include "../Model/CTECBinaryTree.cpp"
+#include "../Model/Graph.cpp"
+#include "../Model/Timer.h"
+#include "../Model/CTECHashTable.cpp"
 
 
 using namespace std;
@@ -36,20 +26,19 @@ using namespace std;
 class NodeController
 {
 private:
-    CTECList<int> * numbers;
-	Timer arrayTimer;
-	void testList();
+    Timer arrayTimer;
     void sortData();
+    void testList();
     void searchList();
     
     void swap(int first, int second);
+    void quickSort(int first, int last);
     int partition(int first, int last);
     void doQuick();
-    void quickSort(int first, int last);
-
-    int * mergeData;
+    
     void doMergeSort();
-    void mergeSort(int data[], int size);
+    int * mergeData;
+    void mergeSort(int data [], int size);
     void merge(int data [], int sizeOne, int sizeTwo);
     
     void tryGraph();
@@ -57,12 +46,8 @@ private:
     
     void testHashTable();
 public:
-	NodeController();
-	virtual ~NodeController();
-	void start();
- 
-
-
+    NodeController();
+    virtual ~NodeController();
+    void start();
 };
-
 #endif /* CONTROLLER_NODECONTROLLER_H_ */
