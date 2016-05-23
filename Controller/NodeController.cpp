@@ -22,7 +22,8 @@ NodeController :: ~NodeController()
 
 void NodeController :: start()
 {
-    tryTree();
+    
+    tryGraph();
 }
 
 void NodeController :: searchList()
@@ -145,13 +146,35 @@ void NodeController :: tryTree()
 void NodeController :: tryGraph()
 {
     Graph<int> testGraph;
+    testGraph.addVertex(1);
+    testGraph.addVertex(2);
+    testGraph.addVertex(3);
+    testGraph.addVertex(4);
+    testGraph.addVertex(5);
+    testGraph.addVertex(6);
     testGraph.addVertex(7);
-    testGraph.addVertex(18);
+    testGraph.addVertex(8);
+    testGraph.addVertex(9);
+    testGraph.addVertex(10);
+    
+    
     //7 vertices
     //Connect them
     testGraph.addEdge(0, 1);
-    testGraph.addEdge(1, 0);
-    testGraph.addEdge(9, 9);
+    testGraph.addEdge(1, 2);
+    testGraph.addEdge(2, 3);
+    testGraph.addEdge(3, 4);
+    testGraph.addEdge(4, 5);
+    testGraph.addEdge(5, 6);
+    testGraph.addEdge(6, 7);
+    testGraph.addEdge(7, 8);
+    testGraph.addEdge(9, 0);
+
+    cout << "\nDepth-First Traversal " << endl;
+    testGraph.depthFirstTraversal(testGraph, 0);
+    cout << "\nBreadth-First Traversal " << endl;
+    testGraph.breadthFirstTraversal(testGraph, 0);
+  
 }
 
 void NodeController :: testHashTable()
