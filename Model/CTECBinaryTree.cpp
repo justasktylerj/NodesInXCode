@@ -29,7 +29,7 @@ CTECBinaryTree<Type> :: ~CTECBinaryTree()
 }
 
 template <class Type>
-bool CTECBinaryTree<Type> :: insert(const Type & value)
+bool CTECBinaryTree<Type> :: insert(const Type& value)
 {
     TreeNode<Type> * insertedNode = new TreeNode<Type>(value);
     
@@ -43,22 +43,25 @@ bool CTECBinaryTree<Type> :: insert(const Type & value)
     {
         if(root == nullptr)
         {
-            root->setValue(value);
+            root = insertedNode;
+            
         }
         else if (value < root->getValue())
         {
-            insert(value);
+           insert(value);
         }
         else
         {
             insert(value);
         }
+        
+        calculateSize(root);
         return true;
     }
 }
 
 template <class Type>
-Type CTECBinaryTree<Type> :: remove(const Type & value)
+Type CTECBinaryTree<Type> :: remove(const Type& value)
 {
     TreeNode<Type> * current = root;
     TreeNode<Type> *trailing = current;
@@ -234,8 +237,7 @@ bool CTECBinaryTree<Type> :: contains(Type value, TreeNode<Type> * currentTree)
     {
         isInTree = false;
     }
-    
-    if (currentTree->getValue() == value)
+    else if (currentTree->getValue() == value)
     {
         isInTree = true;
     }
@@ -277,6 +279,6 @@ TreeNode<Type> * CTECBinaryTree<Type> :: getLeftMostChild(TreeNode<Type> * right
 template <class Type>
 TreeNode<Type> * CTECBinaryTree<Type> :: getRoot()
 {
-    return root;
+    return this->root;
 }
 

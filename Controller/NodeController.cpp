@@ -23,7 +23,7 @@ NodeController :: ~NodeController()
 void NodeController :: start()
 {
     
-    tryGraph();
+    tryTree();
 }
 
 void NodeController :: searchList()

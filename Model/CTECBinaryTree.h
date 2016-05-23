@@ -27,9 +27,9 @@ private:
 public:
     CTECBinaryTree(); //Done
     ~CTECBinaryTree(); //Done
-    bool insert(const Type & value); //Done
+    bool insert(const Type& value); //Done
     bool contains(Type value); //Done
-    Type remove(const Type & value); //Done
+    Type remove(const Type& value); //Done
     int getHeight();
     int getSize(); //Done
     bool isBalanced();

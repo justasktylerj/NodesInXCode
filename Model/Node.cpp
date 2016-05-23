@@ -11,7 +11,7 @@ using namespace std;
 template <class Type>
 Node<Type>:: Node()
 {
-    //pointers = nullptr;
+    pointers = nullptr;
 }
 
 template <class Type>
