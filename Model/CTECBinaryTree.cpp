@@ -31,33 +31,44 @@ CTECBinaryTree<Type> :: ~CTECBinaryTree()
 template <class Type>
 bool CTECBinaryTree<Type> :: insert(const Type& value)
 {
-    TreeNode<Type> * insertedNode = new TreeNode<Type>(value);
+    TreeNode<Type> * trailCurrent;
+    TreeNode<Type> * newNode = new TreeNode<Type>(value);
+    assert (newNode != nullptr);
+    TreeNode<Type> * current = root;
     
-    assert (insertedNode != nullptr);
-    
-    if (contains(value))
+    if (root == nullptr)
     {
-        return false;
+        root = newNode;
     }
     else
     {
-        if(root == nullptr)
+        while (current != nullptr)
         {
-            root = insertedNode;
-            
+            trailCurrent = current;
+            if(current->getValue() == value)
+            {
+                return false;
+            }
+            else if (current->getValue() > value)
+            {
+                current = current->getLeftChild();
+            }
+            else
+            {
+                current = current->getRightChild();
+            }
         }
-        else if (value < root->getValue())
+        if (trailCurrent->getValue() > value)
         {
-           insert(value);
+            trailCurrent->setLeftChild(newNode);
         }
         else
         {
-            insert(value);
+            trailCurrent->setRightChild(newNode);
         }
-        
-        calculateSize(root);
-        return true;
+        trailCurrent->setParent(trailCurrent);
     }
+    return true;
 }
 
 template <class Type>

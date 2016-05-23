@@ -130,8 +130,13 @@ void NodeController :: tryTree()
     CTECBinaryTree<int> testTree;
     testTree.insert(7);
     testTree.insert(10);
+ //   cout << testTree.getSize();
     testTree.insert(-5);
     testTree.insert('4');
+    testTree.insert(1);
+    testTree.insert(-7);
+    testTree.insert(3);
+ //   cout << testTree.getSize();
     
     cout << testTree.contains('7');
     cout << "\nInorder Traversal " << endl;
@@ -141,6 +146,10 @@ void NodeController :: tryTree()
     cout << "\nPostorder Traversal " << endl;
     testTree.postorderTraversal(testTree.getRoot());
     cout << "\nTrees " << endl;
+    
+ //  cout << testTree.getSize();
+    
+
 }
 
 void NodeController :: tryGraph()
