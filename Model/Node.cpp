@@ -9,9 +9,9 @@
 using namespace std;
 
 template <class Type>
-Node<Type>::Node()
+Node<Type>:: Node()
 {
-    pointers = nullptr;
+    //pointers = nullptr;
 }
 
 template <class Type>

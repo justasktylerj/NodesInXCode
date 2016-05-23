@@ -24,6 +24,7 @@ public:
     void setValue(const Type & value);
     int getKey();
     Type getValue();
+    
 };
 
 #endif /* HashNode_h */

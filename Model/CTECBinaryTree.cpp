@@ -41,7 +41,11 @@ bool CTECBinaryTree<Type> :: insert(const Type & value)
     }
     else
     {
-        if (value < root->getValue())
+        if(root == nullptr)
+        {
+            root->setValue(value);
+        }
+        else if (value < root->getValue())
         {
             insert(value);
         }
@@ -199,19 +203,26 @@ void CTECBinaryTree<Type> :: calculateSize(TreeNode<Type> * currentNode)
 template <class Type>
 bool CTECBinaryTree<Type> :: contains(Type value)
 {
-    
-    if (root->getValue() == value)
+    if(size > 0)
     {
-        return true;
-    }
-    else if(value < root->getValue())
-    {
-        return contains(value, root->getLeftChild());
+        if (root->getValue() == value)
+        {
+            return true;
+        }
+        else if(value < root->getValue())
+        {
+            return contains(value, root->getLeftChild());
+        }
+        else
+        {
+            return contains(value, root->getRightChild());
+        }
     }
     else
     {
-        return contains(value, root->getRightChild());
+        return false;
     }
+    
 }
 
 template <class Type>

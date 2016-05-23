@@ -23,6 +23,7 @@ public:
     Type getValue();
     void setValue(const Type& value);
     Node * getPointers();
+   
 };
 
 #endif /* MODEL_NODE_H_ */
