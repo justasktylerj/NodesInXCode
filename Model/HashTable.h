@@ -22,21 +22,21 @@ private:
     HashNode<Type> ** internalStorage;
     CTECList<HashNode <Type>> * tableStorage;
     
-    int findPosition(HashNode<Type> currentNode);//Done
-    int findTablePosition(HashNode<Type>);//Done
-    int handleCollision(HashNode<Type> currentNode);//Done
-    void updateSize();//Done
-    void updateTableCapacity();//Done
-    int getNextPrime();//Done
-    bool isPrime(int candidateNumber);//Done
+    int findPosition(HashNode<Type> currentNode);
+    int findTablePosition(HashNode<Type>);
+    int handleCollision(HashNode<Type> currentNode);
+    void updateSize();
+    void updateTableCapacity();
+    int getNextPrime();
+    bool isPrime(int candidateNumber);
 public:
-    HashTable();//Done
-    ~HashTable();//Done
-    int getSize();//Done
-    void add(HashNode<Type> currentNode);//Done
-    void addToTable(HashNode<Type> currentNode);//Done
-    bool remove(HashNode<Type> currentNode);//Done
-    bool contains(HashNode<Type> currentNode);//Done
+    HashTable();
+    ~HashTable();
+    int getSize();
+    void add(HashNode<Type> currentNode);
+    void addToTable(HashNode<Type> currentNode);
+    bool remove(HashNode<Type> currentNode);
+    bool contains(HashNode<Type> currentNode);
 };
 
 

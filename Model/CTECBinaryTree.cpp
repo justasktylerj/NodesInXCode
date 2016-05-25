@@ -75,7 +75,7 @@ template <class Type>
 Type CTECBinaryTree<Type> :: remove(const Type& value)
 {
     TreeNode<Type> * current = root;
-    TreeNode<Type> *trailing = current;
+    TreeNode<Type> * trailing = current;
     if (!contains(value))
     {
         return value;
@@ -199,7 +199,7 @@ void CTECBinaryTree<Type> :: postorderTraversal(TreeNode<Type> * currentNode)
 template <class Type>
 int CTECBinaryTree<Type> :: getSize()
 {
-    calculatedSize(root);
+    calculateSize(root);
     return size;
 }
 
