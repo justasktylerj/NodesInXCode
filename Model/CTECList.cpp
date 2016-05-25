@@ -69,14 +69,7 @@ Type CTECList<Type>::getEnd()
 template <class Type>
 Type CTECList<Type>::getFromIndex(int index)
 {
-    //******************************************//
-    //	Check to make sure index > 0 & <= size	//
-    //	Create a reference to head				//
-    //	Get front if index is 0					//
-    //	Loop to index							//
-    //	Update pointer to the next				//
-    //	Return the pointer to the desired Node	//
-    //******************************************//
+    
     
     assert(this->size > 0);
     assert(index >= 0 && index < size);
@@ -172,10 +165,6 @@ void CTECList<Type>::addAtIndex(int index, Type value)
     this->calculateSize();
 }
 
-/**
- * Removes a Node from the front, or head of the list, given the list is not empty.
- * Calculates list size.
- */
 template <class Type>
 Type CTECList<Type>::removeFromFront()
 {
@@ -195,25 +184,9 @@ Type CTECList<Type>::removeFromFront()
     return returnValue;
 }
 
-/**
- * Removes a Node from the end of the list, if the list is not empty.
- * Calculates list size.
- */
 template <class Type>
 Type CTECList<Type>::removeFromEnd()
 {
-    //**************************************************//
-    //	Check for size == 1, it is a special case		//
-    //	Loop over size									//
-    //	or												//
-    //	Loop until getNext() == nullptr					//
-    //	Grab value from the last node					//
-    //	Set the next to last node to point to nullptr	//
-    //	Set the next to last node as end				//
-    //	Delete the old last node						//
-    //	Before return the variable call calculateSize()	//
-    //	Return value									//
-    //**************************************************//
     
     assert(size > 0);
     

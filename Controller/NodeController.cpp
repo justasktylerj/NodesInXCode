@@ -23,7 +23,7 @@ NodeController :: ~NodeController()
 void NodeController :: start()
 {
     
-    testHashTable();
+    tryTree();
 }
 
 void NodeController :: searchList()

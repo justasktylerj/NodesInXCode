@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/CTECBinaryTree.cpp"
-            timestampString = "485710724.515649"
+            timestampString = "485880357.925703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "contains(Type value)"
             landmarkType = "7">
          </BreakpointContent>
